@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Alien = require("../models/alien");
 const controller=require('../controllers/allien.controller')
-// router.get('/',(req,res)=>{
+// router.get('/',(req,res)=>{ 
 //     res.send("Get Request")
 // });
 

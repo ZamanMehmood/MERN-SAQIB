@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const url = "mongodb://localhost/user";
 const cors=require("cors")
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); 
 
 const app = express();
 

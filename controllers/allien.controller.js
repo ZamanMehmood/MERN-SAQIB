@@ -4,7 +4,7 @@ const Alien = require("../models/alien");
 exports.getAllAliens = async (req, res) => {
     try {
       const aliens = await Alien.find();
-      res.json(aliens);
+      res.json(aliens); 
     } catch (err) {
       res.send("Error " + err);
     }

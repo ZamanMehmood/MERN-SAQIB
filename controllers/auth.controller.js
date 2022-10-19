@@ -75,7 +75,7 @@ exports.login = async (req, res) => {
 
     let user = await User.findOne({
       email,
-    });
+    }); 
 
     if (!user) return res.json({ success: false, msg: "Email no exist" });
 

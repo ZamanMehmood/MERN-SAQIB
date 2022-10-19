@@ -3,7 +3,7 @@
     //password 
     //gender 
     //dateOfBirth Date
-
+ 
 
 
 const mongoose = require('mongoose');
