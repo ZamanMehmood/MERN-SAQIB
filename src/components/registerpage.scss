@@ -1,0 +1,69 @@
+.main-container {
+  height: 500px;
+  width: 650px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(0, -50%); 
+//   border: 5px solid #ffff00;
+  padding: 10px;
+}
+.main-input {
+  height: 40px;
+  width: 290px;
+  padding: 8px;
+}
+
+.main-icon {
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+.checkbox-text {
+  font-size: 12px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.main-inputs {
+  height: 55px;
+  width: 290px;
+  margin-left: 6px;
+  background-color: #f57224;
+  border-color: transparent;
+  margin-top: 14px;
+}
+
+.SignUpwith-email-button {
+  height: 55px;
+  width: 290px;
+  margin-left: 6px;
+  color: #f57224;
+  border: 1px solid #f57224;
+  background-color: white;
+  margin-top: 14px;
+}
+
+.facebook-field{
+    width: 135px;
+}
+
+.google-field{
+    width: 135px;
+}
+.facebook-icon{
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 15px;
+}
+.google-icon{
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+label{
+    font-size: 12px;
+}
