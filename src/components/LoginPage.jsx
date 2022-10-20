@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import {  Link } from "react-router-dom";
+
 import axios from "axios";
 import "./loginpage.scss";
 
@@ -56,7 +58,9 @@ const Loginpage = () => {
             <button type="submit" className="login-button text-light">
               Login
             </button>
-            <p className="loginwith">Or,login with</p>
+            <p className="loginwith">Or,login with
+            <Link to="/register" className="m-1">Register</Link>
+            </p>
             <div className="m-2">
               <i className="fa fa-facebook facebook-icon text-light"></i>
               <button className="btn btn-primary text-light facebook-field m-2">

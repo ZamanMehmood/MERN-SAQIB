@@ -1,0 +1,45 @@
+#sidebar {
+    height: auto;
+    // height: 100vh;
+    max-width: 250px;
+    background: #01092C;
+    color: #FFDE59;
+    // transition: all 0.3s;
+    margin-top: 90px;
+  }
+
+
+  // .main-card{
+  //   margin-left: 5px;
+  // }
+  // .main-card{
+  //   background-color: #01092C;
+  //   hei;
+  // }
+  .card-link{
+   border-bottom: none;    
+   font-size: small;
+   text-decoration: none;
+  }
+
+  .card-price{
+    color: #f57224;
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .strikeline{
+    color: rgb(177, 156, 130);
+    font-size: 12px;
+
+  }
+
+  .discount-price{
+    font-size: 12px;
+    padding-left: 5px;
+    color: black;
+  }
+
+  .star-icon{
+    color: orange;
+  }

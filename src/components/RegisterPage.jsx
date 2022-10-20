@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./registerpage.scss";
 
@@ -64,7 +65,7 @@ const RegisterPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="d-flex">
+            <div className="d-flex mt-4 ms-5">
               <span>Birthday</span>
               <div className="d-flex">
                 <select
@@ -104,7 +105,7 @@ const RegisterPage = () => {
               <input
                 type="text"
                 className="main-input"
-                placeholder="Please enter yout phone number"
+                placeholder="Enter your fullName"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
@@ -124,10 +125,14 @@ const RegisterPage = () => {
               <span className="text-primary">Privacy Policy</span>
             </p>
             <div>
-              <p className="checkbox-text">Or, sign up with</p>
+              <p className="checkbox-text">Or, sign up with
+            <Link to="/login" className="m-1">Login</Link>
+              
+              </p>
               <button type="button" className="SignUpwith-email-button  ">
                 Sign up with email
               </button>
+
             </div>
             <div className="m-2">
               <i className="fa fa-facebook facebook-icon text-light"></i>
