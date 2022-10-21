@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const url = "mongodb://localhost/user";
+const url = "mongodb://localhost/Ecommerece";
 const cors=require("cors")
 const bodyParser = require('body-parser'); 
 
@@ -25,6 +25,8 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 const user = require("./routes/auth.route");
 app.use("/users", user);
+const product = require("./routes/product.route");
+app.use("/products", product);
 
 const PORT = 8081;
 app.listen(PORT, () => {
