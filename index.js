@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const url = "mongodb://localhost/Ecommerece";
-const cors=require("cors")
-const bodyParser = require('body-parser'); 
-
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const app = express();
+const path = require("path");
+
 
 mongoose.connect(url, { useNewUrlParser: true });
 const cons = mongoose.connection;
@@ -20,8 +21,12 @@ var corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+
+  // "path module ==>" middleware function ha 
+// ya line hamain hamari static cheezoo ko read karna ki ijazat de ga ya sirf uploads wala folder ko he read kara ga
+app.use( express.static(path.join(__dirname, "uploads")));
 
 const user = require("./routes/auth.route");
 app.use("/users", user);
