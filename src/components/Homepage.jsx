@@ -7,9 +7,9 @@ import Cards from "./Cards";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="App">
        <Navbar />
-       <div className="d-flex">
+       <div >
        <SideBar />
        <Cards />
        </div>

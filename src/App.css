@@ -2,6 +2,7 @@
   /* text-align: center; */
   background-color: #999; 
    height: 800px;
+   box-sizing: border-box;
 }
  
 .App-logo {
