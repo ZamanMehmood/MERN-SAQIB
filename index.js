@@ -32,6 +32,8 @@ const user = require("./routes/auth.route");
 app.use("/users", user);
 const product = require("./routes/product.route");
 app.use("/products", product);
+const category = require("./routes/category.route");
+app.use("/categories", category);
 
 const PORT = 8081;
 app.listen(PORT, () => {

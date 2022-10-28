@@ -39,3 +39,6 @@ exports.products = async (req, res, next) => {
     next();
   }
 };
+
+//name :string 
+//type :number  1=Main category  2=sub-category 3=sub-sub-category
