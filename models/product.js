@@ -5,37 +5,73 @@
     //discountPrice
     // ratings
     // totalReviews
- 
+
+    // const mongoose = require('mongoose');
+    // const productSchema = new mongoose.Schema({
+    //     Name: {
+    //         type: String,
+    //         required: true
+    //     },
+    //     Image: {
+    //         type: String,
+    //     },
+    //     price: {
+    //         type: Number,
+    //      },
+    //     discountPrice: {
+    //         type: Number,
+    //      },
+    //     ratings: {
+    //         type: Number,
+    //      },
+    //     totalReviews: {
+    //         type: Number,
+    //      }
+    // })
+    
+    // module.exports = mongoose.model('Product',productSchema)
 
 
     const mongoose = require('mongoose');
     const productSchema = new mongoose.Schema({
-    
-        Name: {
+        name: {
             type: String,
             required: true
         },
-        Image: {
+        description: {
             type: String,
         },
-        price: {
+        brandName: {
+            type: String,
+         },
+        categories: {
+            type: String,
+         },
+        subCategories: {
+            type: String,
+         },
+         subSubCategories: {
+            type: String,
+         },
+         price: {
             type: Number,
-            required: true,
-        },
-        discountPrice: {
+         },
+         currency: {
+            type: String,
+         },
+         sku:{
             type: Number,
-            required: true,
-        },
-        ratings: {
+         },
+         quantity: {
             type: Number,
-            required: true,
-        },
-        totalReviews: {
-            type: Number,
-            required: true,
-        }
-    
+         },
+         weight: {
+            type: Number
+         },
+         Image: {
+            type: String
+         }
+        
     })
-    
     
     module.exports = mongoose.model('Product',productSchema)

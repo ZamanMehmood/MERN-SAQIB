@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 // const user = require("../models/user");
-const product = require('../models/product');
-const controller = require('../controllers/product.controller')
+const currency = require('../models/currency.model');
+const controller = require('../controllers/currency.controller')
 
 
 // 
@@ -24,7 +24,9 @@ const storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
  
-router.post("/",upload.single('Image'), controller.products);
-router.get("/getProducts", controller.getAllProducts);
+router.post("/",upload.single('Logos'), controller.currencies);
+router.get("/getCurrencies", controller.getCurrencies);
 
 module.exports = router;
+
+

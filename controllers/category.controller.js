@@ -64,9 +64,9 @@ exports.updateCategories = async (req, res) => {
 
   exports.deleteCategories = async (req, res) => {
     try {
-      const category = await Category.findByIdAndRemove(req.params.id);
-      const deleteCategory = await category.save();
-      res.json(deleteCategory);
+      const category = await Category.findByIdAndDelete(req.params.id);
+      // const deleteCategory = await category.save();
+      res.json(category);
     } catch (err) {
       res.send("Error handling ===>", err);
     }
