@@ -70,13 +70,11 @@ exports.products = async (req, res, next) => {
       sku: req.body.sku,
       quantity: req.body.quantity,
       weight: req.body.weight,
-      Image:req.file.filename,
-
+      image:req.file.filename,
     });
 
-    //save the user in db
+    //save the product in db
     product = await product.save();
-
     return res.json({
       success: true,
       data: product,

@@ -68,7 +68,7 @@
          weight: {
             type: Number
          },
-         Image: {
+         image: {
             type: String
          }
         
