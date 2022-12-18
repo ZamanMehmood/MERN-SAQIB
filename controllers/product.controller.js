@@ -41,7 +41,7 @@
 // };
 
  const Product = require("../models/product");
-// const Product = require("../models/product");
+ 
 
 // get all the products
 exports.getAllProducts = async (req, res) => {
