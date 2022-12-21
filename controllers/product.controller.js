@@ -9,7 +9,7 @@
 //   } catch (err) {
 //     res.send("Product Error " + err);
 //   }
-// };  
+// };
 
 // // Create the product  / Register
 // exports.products = async (req, res, next) => {
@@ -29,7 +29,7 @@
 //     product = await product.save();
 
 //     return res.json({
-    
+
 //       success: true,
 //       data: product,
 //       msg: "product created successfully",
@@ -40,8 +40,7 @@
 //   }
 // };
 
- const Product = require("../models/product");
- 
+const Product = require("../models/product");
 
 // get all the products
 exports.getAllProducts = async (req, res) => {
@@ -51,14 +50,23 @@ exports.getAllProducts = async (req, res) => {
   } catch (err) {
     res.send("Product Error " + err);
   }
-};  
+};
 
+//  get product by ID
+exports.getProductById = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    res.json(product);
+  } catch (err) {
+    res.send("Error " + err);
+  }
+};
 // Create the product  / Register
 exports.products = async (req, res, next) => {
   try {
-    console.log("REq.body", req.body,req.file);
+    console.log("REq.body", req.body, req.file);
     //create new product in db
-   let product = new Product({
+    let product = new Product({
       name: req.body.name,
       description: req.body.description,
       brandName: req.body.brandName,
@@ -70,7 +78,7 @@ exports.products = async (req, res, next) => {
       sku: req.body.sku,
       quantity: req.body.quantity,
       weight: req.body.weight,
-      image:req.file.filename,
+      image: req.file.filename,
     });
 
     //save the product in db
@@ -83,5 +91,56 @@ exports.products = async (req, res, next) => {
   } catch (err) {
     console.log("Error handling =>", err);
     next();
+  }
+};
+
+// delete product by their Id
+exports.deleteProduct = async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete(req.params.id);
+    // const deleteproduct = await product.save();
+    res.json({ success: true, data: product });
+  } catch (err) {
+    res.status(400).json({ success: false, data: err });
+  }
+};
+
+//     // update product by their Ids
+exports.updateProduct = async (req, res) => {
+  try {
+    console.log("Req.body", req.body, req.file);
+
+    const product = await Product.findById(req.params.id);
+    product.name = req.body.name;
+    product.description = req.body.description;
+    product.brandName = req.body.brandName;
+    product.categories = req.body.categories;
+    product.subCategories = req.body.subCategories;
+    product.subSubCategories = req.body.subSubCategories;
+    product.price = req.body.price;
+    product.currency = req.body.currency;
+    product.sku = req.body.sku;
+    product.quantity = req.body.quantity;
+    product.weight = req.body.weight;
+    if (req.file) {
+      product.image = req.file.filename;
+    }
+
+    const updateProduct = await product.save();
+    res.json(updateProduct);
+    // return res.json({
+    //   success: true,
+    //   data: Product,
+    //   msg: "product updated successfully",
+    // });
+  } catch (err) {
+    console.log("hanlde error", err);
+    return res.json({
+      success: false,
+      data: Product,
+      msg: "product not updated successfully",
+    });
+    next();
+    // res.status(400).send("Error handling ===>", err);
   }
 };

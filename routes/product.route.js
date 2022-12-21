@@ -26,5 +26,9 @@ var upload = multer({ storage: storage })
  
 router.post("/",upload.single('Image'), controller.products);
 router.get("/getProducts", controller.getAllProducts);
+router.delete("/:id", controller.deleteProduct);
+router.get("/:id", controller.getProductById);
+router.put("/:id",upload.single('Image'), controller.updateProduct);
+
 
 module.exports = router;

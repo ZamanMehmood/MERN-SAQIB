@@ -10,67 +10,63 @@ exports.getCategories = async (req, res) => {
   }
 };
 
-
-//  get categori by ID 
+//  get categori by ID
 exports.getCategoryById = async (req, res) => {
-    try {
-      const category = await Category.findById(req.params.id);
-      res.json(category);
-    } catch (err) {
-      
-      res.send("Error " + err);
-    }
+  try {
+    const category = await Category.findById(req.params.id);
+    res.json(category);
+  } catch (err) {
+    res.send("Error " + err);
   }
+};
 
 // Create new Category
 exports.categories = async (req, res, next) => {
   try {
     console.log("REq.body", req.body);
     //create new user in db
-   let category = new Category({
+    let category = new Category({
       Name: req.body.Name,
-      type: req.body.type
+      type: req.body.type,
     });
 
     //save the user in db
     category = await category.save();
 
     return res.json({
-    
       success: true,
       data: category,
       msg: "category created successfully",
     });
   } catch (err) {
     console.log("Error handling =>", err);
+    res.status(400).json({ success: false, data: err });
     next();
   }
 };
 
-
 //  update categori by their Id
 exports.updateCategories = async (req, res) => {
-    try {
-      const category = await Category.findById(req.params.id);
-      category.Name = req.body.Name;
-      category.type = req.body.type;
-      const updateCategory = await category.save();
-      res.json(updateCategory);
-    } catch (err) {
-      res.send("Error handling ===>", err);
-    }
-  };
+  try {
+    const category = await Category.findById(req.params.id);
+    category.Name = req.body.Name;
+    category.type = req.body.type;
+    const updateCategory = await category.save();
+    res.json(updateCategory);
+  } catch (err) {
+    res.send("Error handling ===>", err);
+  }
+};
 
+exports.deleteCategories = async (req, res) => {
+  try {
+    const category = await Category.findByIdAndDelete(req.params.id);
+    // const deleteCategory = await category.save();
+    res.json({ success: true, data: category });
+  } catch (err) {
+    res.status(400).json({ success: false, data: err });
+  }
+};
 
-  exports.deleteCategories = async (req, res) => {
-    try {
-      const category = await Category.findByIdAndDelete(req.params.id);
-      // const deleteCategory = await category.save();
-      res.json(category);
-    } catch (err) {
-      res.send("Error handling ===>", err);
-    }
-  };
-  
-//name :string 
+//name :string
 //type :number  1=Main category  2=sub-category 3=sub-sub-category

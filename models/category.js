@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
         },
         type: {
             type: Number,
-            required: true
+             
         }
     })
     
