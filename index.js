@@ -43,6 +43,10 @@ app.use("/categories", category);
 const currency = require("./routes/currency.route");
 app.use("/currencies", currency);
 
+// route for admin
+const admin = require("./routes/admin.route");
+app.use("/admin", admin);
+
 const PORT = 8081;
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
