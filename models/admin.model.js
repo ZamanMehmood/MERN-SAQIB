@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 const moment = require('moment-timezone');
 const jwt = require('jwt-simple');
@@ -7,18 +6,27 @@ const { env, jwtSecret, jwtExpirationInterval } = require('../config/vars');
 
 const userSchema = new mongoose.Schema({
 
-    fullName: {
+    name: {
         type: String,
-        required: true
+           // name email address number image password
     },
     email: {
         type: String,
-        required: true
+         
     },
-    password: {
-        type: String,
-        required: true,
-    }
+    address: {
+      type: String,
+    },
+     number: {
+      type: Number
+     },
+     password: {
+      type: String,
+  },
+     image: {
+      type : String
+     }
+  
 })
 
 userSchema.method({
